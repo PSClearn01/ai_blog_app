@@ -26,15 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-za)ex^hk34bg$--^h&y&iifnqee!*d%rvp&&u20#fiq)h7ug^u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['db.purosurboxeo.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -77,29 +77,40 @@ WSGI_APPLICATION = 'ai_blog_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
-#  'default': {
+#   'default': {
 #    'ENGINE': 'django.db.backends.postgresql',
-#    'NAME': getenv('PGDATABASE'),
-#    'USER': getenv('PGUSER'),
-#    'PASSWORD': getenv('PGPASSWORD'),
-#    'HOST': getenv('PGHOST'),
-#    'PORT': getenv('PGPORT', 5432),
+#    'NAME': 'Blog%20Database',
+#    'USER': 'Blog%20Database_owner',
+#    'PASSWORD': 'To2KHkiGp1ac',
+#    'HOST': 'ep-silent-recipe-a6g8kooo.us-west-2.aws.neon.tech',
+#    'PORT': '5432',
 #    'OPTIONS': {
-#      'sslmode': 'require',
-#    },
-#    'DISABLE_SERVER_SIDE_CURSORS': True,
-#     'CONN_MAX_AGE': '0',
-#    'CONN_HEALTH_CHECKS': True,
+#       'sslmode': 'require',
+#     },
 #   }
 # }
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': getenv('PGDATABASE'),
+    'USER': getenv('PGUSER'),
+    'PASSWORD': getenv('PGPASSWORD'),
+    'HOST': getenv('PGHOST'),
+    'PORT': getenv('PGPORT', 5432),
+    'OPTIONS': {
+      'sslmode': 'require',
+    },
+  }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
